@@ -187,7 +187,7 @@ export default {
         this.cars = [...this.getCars];
       });
     },
-    ...mapActions(["setCARSAction","editCARAction"]),
+    ...mapActions(["setCARSAction","editCARAction","deleteCARAction","addUserAction"]),
 
     editItem(item) {
       this.editedIndex = this.cars.indexOf(item) + 1;
@@ -201,7 +201,7 @@ export default {
     },
     deleteItemConfirm() {
       this.deleteCARAction(this.editedItem).then(() => {
-        this.equipmentsFiltres = this.equipmentsFiltres.filter((e) => {
+        this.cars = this.cars.filter((e) => {
           return e.id != this.editedItem.id;
         });
       });
@@ -217,7 +217,7 @@ export default {
     save() {
       if (this.editedIndex == -1) {
         this.addUserAction(this.editedItem).then((equipment) => {
-          this.equipmentsFiltres.push(equipment);
+          this.cars.push(equipment);
         });
       } else {
         this.editCARAction(this.editedItem).then((equipment) => {
