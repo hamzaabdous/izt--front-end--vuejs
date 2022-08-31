@@ -8,6 +8,7 @@ import carModule from "./models/carModule";
 import carrangeModule from "./models/carrangeModule";
 import destinationModule from "./models/destinationModule";
 
+import destinationcarrangesModule from "./models/destinationcarrangesModule";
 
 Vue.use(Vuex);
 const vuexLocalStorage = new VuexPersist({
@@ -29,6 +30,7 @@ export default function () {
       carModule,
       carrangeModule,
       destinationModule,
+      destinationcarrangesModule,
     },
     state: {},
     mutations: {},

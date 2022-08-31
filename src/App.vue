@@ -54,6 +54,20 @@
           </v-list-item>
           <v-list-item>
             <router-link
+              to="/DestinationcarrangesGestion"
+              class="itemd d-flex flex-row"
+              style="text-decoration: none"
+            >
+              <v-list-item-icon>
+                <v-icon  large>mdi-map-marker-distance</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>Destination carranges </v-list-item-title>
+              </v-list-item-content>
+            </router-link>
+          </v-list-item>
+          <v-list-item>
+            <router-link
               to="/DestinationGestion"
               class="itemd d-flex flex-row"
               style="text-decoration: none"

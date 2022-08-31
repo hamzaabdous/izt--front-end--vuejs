@@ -5,7 +5,7 @@ const destinationModule = {
     destinations: [],
   },
   mutations: {
-    SET_DESTINATIONS(state, destinations) {
+    SET_DESTINATIONCARRANGES(state, destinations) {
       state.destinations = destinations;
     },
     ADD_DESTINATION(state, destination) {
@@ -28,7 +28,7 @@ const destinationModule = {
       return new Promise((resolve, reject) => {
         CustomizedAxios.get("destination/")
           .then((response) => {
-            commit("SET_DESTINATIONS", response.data.payload);
+            commit("SET_DESTINATIONCARRANGES", response.data.payload);
             console.log("set destination ");
             resolve(response);
           })
@@ -41,7 +41,7 @@ const destinationModule = {
       return new Promise((resolve, reject) => {
         CustomizedAxios.get("destination/" + id)
           .then((response) => {
-            commit("SET_DESTINATIONS", response.data.payload);
+            commit("SET_DESTINATIONCARRANGES", response.data.payload);
             console.log("set destination ");
             resolve(response.data.payload);
           })
