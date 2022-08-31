@@ -49,7 +49,7 @@ const carModule = {
       });
     },
 
-    addUserAction({ commit }, car) {
+    addCARAction({ commit }, car) {
       return new Promise((resolve, reject) => {
         CustomizedAxios.post("car/create", car)
           .then((response) => {

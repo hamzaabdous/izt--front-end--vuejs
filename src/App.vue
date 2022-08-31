@@ -8,7 +8,7 @@
       </v-list-item>
       <v-divider></v-divider>
 
-      <v-list rounded>
+      <v-list  nav>
         <v-list-item-group active-class="active" class="maraginBettwenItems">
           <v-list-item>
             <router-link
@@ -26,12 +26,12 @@
           </v-list-item>
           <v-list-item>
             <router-link
-              to="/about"
+              to="/CarrangeGestion"
               class="itemd d-flex flex-row"
               style="text-decoration: none"
             >
               <v-list-item-icon>
-                <v-icon  large>mdi-car</v-icon>
+                <v-icon  large>mdi-selection-marker</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title>Carrange</v-list-item-title>
@@ -57,7 +57,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar color="primary" app>
+    <v-app-bar color="deep-orange lighten-2" app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Izt</v-toolbar-title>

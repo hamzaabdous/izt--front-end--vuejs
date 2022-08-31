@@ -5,6 +5,7 @@ import Vuex from "vuex";
 
 import VuexPersist from "vuex-persist";
 import carModule from "./models/carModule";
+import carrangeModule from "./models/carrangeModule";
 
 
 Vue.use(Vuex);
@@ -25,6 +26,7 @@ export default function () {
   store = new Vuex.Store({
     modules: {
       carModule,
+      carrangeModule,
     },
     state: {},
     mutations: {},

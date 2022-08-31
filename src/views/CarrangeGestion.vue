@@ -2,15 +2,14 @@
   <div style="padding: 60px; padding-top: 4%">
     <v-data-table
       :headers="headers"
-      :items="cars"
+      :items="carranges"
       :search="search"
       sort-by="item.id"
       class="elevation-1"
     >
       <template v-slot:top>
         <v-toolbar flat>
-
-            <v-toolbar-title>List des Voitures</v-toolbar-title>
+          <v-toolbar-title>List des Car Range</v-toolbar-title>
           <v-spacer></v-spacer>
 
           <v-text-field
@@ -45,14 +44,20 @@
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
-                        v-model="editedItem.CarImage"
-                        label="CarImage"
+                        v-model="editedItem.MinPassengers"
+                        label="MinPassengers"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
-                        v-model="editedItem.IdCarRange"
-                        label="IdCarRange"
+                        v-model="editedItem.MaxPassengers"
+                        label="MaxPassengers"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-text-field
+                        v-model="editedItem.PricePercentage"
+                        label="PricePercentage"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -120,42 +125,46 @@ export default {
     search: "",
     headers: [
       { text: "id", value: "id", sortable: true },
-      { text: "label", value: "Label", sortable: true },
-      { text: "CarImage", value: "CarImage", sortable: true },
-      { text: "carrange", value: "carrange.Label", sortable: true },
+      { text: "Label", value: "Label", sortable: true },
       {
-        text: "carrange MinPassengers",
-        value: "carrange.MinPassengers",
+        text: " MinPassengers",
+        value: "MinPassengers",
         sortable: true,
       },
       {
-        text: "carrange MaxPassengers",
-        value: "carrange.MaxPassengers",
+        text: " MaxPassengers",
+        value: "MaxPassengers",
         sortable: true,
       },
       {
-        text: "carrange PricePercentage (%)",
-        value: "carrange.PricePercentage",
+        text: "PricePercentage (%)",
+        value: "PricePercentage",
         sortable: true,
       },
-
+      {
+        text: "cars count",
+        value: "car.length",
+        sortable: true,
+      },
       { text: "Actions", value: "actions", sortable: false },
     ],
-    cars: [],
+    carranges: [],
 
     idgrp: null,
     editedIndex: -1,
     editedItem: {
       id: 0,
       Label: "",
-      CarImage: "",
-      IdCarRange: 0,
+      MinPassengers: 0,
+      MaxPassengers: 0,
+      PricePercentage: 0,
     },
     defaultItem: {
       id: 0,
       Label: "",
-      CarImage: "",
-      IdCarRange: 0,
+      MinPassengers: 0,
+      MaxPassengers: 0,
+      PricePercentage: 0,
     },
   }),
   mounted() {
@@ -166,7 +175,7 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
-    ...mapGetters(["getCars"]),
+    ...mapGetters(["getCarranges"]),
   },
   watch: {
     dialog(val) {
@@ -187,19 +196,19 @@ export default {
   created() {},
   methods: {
     initialize() {
-      this.setCARSAction().then(() => {
-        this.cars = [...this.getCars];
+      this.setCARRANGSAction().then(() => {
+        this.carranges = [...this.getCarranges];
       });
     },
     ...mapActions([
-      "setCARSAction",
-      "editCARAction",
-      "deleteCARAction",
-      "addCARAction",
+      "setCARRANGSAction",
+      "editCARRANGAction",
+      "deleteCARRANGAction",
+      "addCARRANGAction",
     ]),
 
     editItem(item) {
-      this.editedIndex = this.cars.indexOf(item) + 1;
+      this.editedIndex = this.carranges.indexOf(item) + 1;
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
@@ -209,8 +218,8 @@ export default {
       this.dialogDelete = true;
     },
     deleteItemConfirm() {
-      this.deleteCARAction(this.editedItem).then(() => {
-        this.cars = this.cars.filter((e) => {
+      this.deleteCARRANGAction(this.editedItem).then(() => {
+        this.carranges = this.carranges.filter((e) => {
           return e.id != this.editedItem.id;
         });
       });
@@ -225,12 +234,12 @@ export default {
     },
     save() {
       if (this.editedIndex == -1) {
-        this.addCARAction(this.editedItem).then((equipment) => {
-          this.cars.push(equipment);
+        this.addCARRANGAction(this.editedItem).then((equipment) => {
+          this.carranges.push(equipment);
         });
       } else {
-        this.editCARAction(this.editedItem).then((equipment) => {
-          this.cars = this.cars.map((c) => {
+        this.editCARRANGAction(this.editedItem).then((equipment) => {
+          this.carranges = this.carranges.map((c) => {
             if (c.id == equipment.id) return equipment;
             return c;
           });
