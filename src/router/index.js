@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import CarGestion from '../views/CarGestion.vue'
 import CarrangeGestion from '../views/CarrangeGestion.vue'
+import DestinationGestion from '../views/DestinationGestion.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/CarrangeGestion',
     name: 'CarrangeGestion',
     component: CarrangeGestion
+  },
+  {
+    path: '/DestinationGestion',
+    name: 'DestinationGestion',
+    component: DestinationGestion
   },
 ]
 

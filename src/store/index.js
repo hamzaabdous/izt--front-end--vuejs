@@ -6,6 +6,7 @@ import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
 import carModule from "./models/carModule";
 import carrangeModule from "./models/carrangeModule";
+import destinationModule from "./models/destinationModule";
 
 
 Vue.use(Vuex);
@@ -27,6 +28,7 @@ export default function () {
     modules: {
       carModule,
       carrangeModule,
+      destinationModule,
     },
     state: {},
     mutations: {},
