@@ -5,6 +5,7 @@ import CarrangeGestion from '../views/CarrangeGestion.vue'
 import DestinationGestion from '../views/DestinationGestion.vue'
 import DestinationcarrangesGestion from '../views/DestinationcarrangesGestion.vue'
 import ReservationGestion from '../views/ReservationGestion.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/ReservationGestion',
     name: 'ReservationGestion',
     component: ReservationGestion
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
   },
 ]
 

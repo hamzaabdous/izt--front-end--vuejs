@@ -10,6 +10,7 @@ import destinationModule from "./models/destinationModule";
 
 import destinationcarrangesModule from "./models/destinationcarrangesModule";
 import reservationModule from "./models/reservationModule";
+import userModule from "./models/userModule";
 
 Vue.use(Vuex);
 const vuexLocalStorage = new VuexPersist({
@@ -21,7 +22,7 @@ const vuexLocalStorage = new VuexPersist({
   // Function that passes a mutation and lets you decide if it should update the state in localStorage.
   // filter: mutation => (true)
   reducer: (state) => ({
-    //usersModule: state.usersModule,
+   userModule: state.userModule,
   }),
 });
 let store = null;
@@ -33,6 +34,7 @@ export default function () {
       destinationModule,
       destinationcarrangesModule,
       reservationModule,
+      userModule
     },
     state: {},
     mutations: {},
