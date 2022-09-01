@@ -4,6 +4,7 @@ import CarGestion from '../views/CarGestion.vue'
 import CarrangeGestion from '../views/CarrangeGestion.vue'
 import DestinationGestion from '../views/DestinationGestion.vue'
 import DestinationcarrangesGestion from '../views/DestinationcarrangesGestion.vue'
+import ReservationGestion from '../views/ReservationGestion.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/DestinationcarrangesGestion',
     name: 'DestinationcarrangesGestion',
     component: DestinationcarrangesGestion
+  },
+  {
+    path: '/ReservationGestion',
+    name: 'ReservationGestion',
+    component: ReservationGestion
   },
 ]
 

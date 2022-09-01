@@ -68,7 +68,7 @@
           </v-list-item>
           <v-list-item>
             <router-link
-              to="/DestinationGestion"
+              to="/ReservationGestion"
               class="itemd d-flex flex-row"
               style="text-decoration: none"
             >
