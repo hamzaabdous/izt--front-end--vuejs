@@ -4,6 +4,7 @@ CustomizedAxios.defaults.baseURL = "http://localhost:8000/api/";
 var token;
 CustomizedAxios.defaults.headers.common["Content-Type"] = "multipart/form-data";
 CustomizedAxios.defaults.headers.common["Accept"] = "application/json";
+CustomizedAxios.defaults.headers.common["enctype"] = "multipart/form-data";
 
 /*     if (localStorage.user) {
   token = JSON.parse(localStorage.user);
