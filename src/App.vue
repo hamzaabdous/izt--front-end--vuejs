@@ -1,6 +1,6 @@
 <template>
   <v-app v-if="logged" id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer color="#000" v-model="drawer" app>
       <v-list style="padding: 0px; align-items: center" nav dense>
           <v-list-item>
             <v-img
@@ -16,7 +16,7 @@
 
       <v-divider></v-divider>
 
-      <v-list nav>
+      <v-list color="#000" nav>
         <v-list-item-group active-class="active" class="maraginBettwenItems">
           <v-list-item>
             <router-link
@@ -24,11 +24,11 @@
               class="itemd d-flex flex-row"
               style="text-decoration: none"
             >
-              <v-list-item-icon>
-                <v-icon large>mdi-car</v-icon>
+              <v-list-item-icon >
+                <v-icon color="#fff" large>mdi-car</v-icon>
               </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>Voiture</v-list-item-title>
+              <v-list-item-content >
+                <v-list-item-title >Voiture</v-list-item-title>
               </v-list-item-content>
             </router-link>
           </v-list-item>
@@ -39,7 +39,7 @@
               style="text-decoration: none"
             >
               <v-list-item-icon>
-                <v-icon large>mdi-selection-marker</v-icon>
+                <v-icon color="#fff" large>mdi-selection-marker</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title>Carrange</v-list-item-title>
@@ -53,7 +53,7 @@
               style="text-decoration: none"
             >
               <v-list-item-icon>
-                <v-icon large>mdi-map-marker-radius-outline</v-icon>
+                <v-icon color="#fff" large>mdi-map-marker-radius-outline</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title>Destinations</v-list-item-title>
@@ -67,7 +67,7 @@
               style="text-decoration: none"
             >
               <v-list-item-icon>
-                <v-icon large>mdi-map-marker-distance</v-icon>
+                <v-icon color="#fff" large>mdi-map-marker-distance</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title>Destination carranges </v-list-item-title>
@@ -81,7 +81,7 @@
               style="text-decoration: none"
             >
               <v-list-item-icon>
-                <v-icon large>mdi-map-marker-radius-outline</v-icon>
+                <v-icon color="#fff" large>mdi-map-marker-radius-outline</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title>Reservation</v-list-item-title>
@@ -93,8 +93,8 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar color="#fff" app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar color="#000" app>
+      <v-app-bar-nav-icon color="#fff" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>
         <v-img
@@ -108,7 +108,7 @@
       <h4  style="color:#e8cc0f" class="text-uppercase ">Inter Ville Zeroual</h4>
       <v-spacer></v-spacer>
 
-      <v-btn icon @click="logout">
+      <v-btn icon color="#fff" @click="logout">
         <v-icon>mdi-logout-variant</v-icon>
       </v-btn>
     </v-app-bar>
