@@ -9,7 +9,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>List des Voitures</v-toolbar-title>
+          <v-toolbar-title>Liste des Voitures</v-toolbar-title>
           <v-spacer></v-spacer>
 
           <v-text-field
@@ -44,7 +44,7 @@
                     </v-col>
                     <v-col cols="12">
                       <v-file-input
-                      v-model="editedItem.photo"
+                        v-model="editedItem.photo"
                         label="File input"
                         filled
                         prepend-icon="mdi-camera"
@@ -150,13 +150,13 @@ export default {
       id: 0,
       Label: "",
       IdCarRange: 0,
-      photo:[]
+      photo: [],
     },
     defaultItem: {
       id: 0,
       Label: "",
       IdCarRange: 0,
-      photo:[],
+      photo: [],
     },
     photos: {
       Label: null,
@@ -235,9 +235,9 @@ export default {
         formData.append("Label", this.editedItem.Label);
         formData.append("image", this.editedItem.photo);
         console.log(this.editedItem.photo[0]);
-         this.addCARAction(formData).then((equipment) => {
+        this.addCARAction(formData).then((equipment) => {
           this.cars.push(equipment);
-        }); 
+        });
       } else {
         this.editCARAction(this.editedItem).then((equipment) => {
           this.cars = this.cars.map((c) => {

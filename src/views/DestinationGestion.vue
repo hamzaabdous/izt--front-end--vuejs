@@ -9,7 +9,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>List des destinations</v-toolbar-title>
+          <v-toolbar-title>Liste des destinations</v-toolbar-title>
           <v-spacer></v-spacer>
 
           <v-text-field
@@ -41,7 +41,7 @@
                         v-model="editedItem.Label"
                         label="Label"
                       ></v-text-field>
-                    </v-col>              
+                    </v-col>
                   </v-row>
                 </v-container>
               </v-card-text>
@@ -108,7 +108,7 @@ export default {
     headers: [
       { text: "id", value: "id", sortable: true },
       { text: "Label", value: "Label", sortable: true },
-      
+
       { text: "Actions", value: "actions", sortable: false },
     ],
     destinations: [],
@@ -117,12 +117,10 @@ export default {
     editedItem: {
       id: 0,
       Label: "",
-
     },
     defaultItem: {
       id: 0,
       Label: "",
-    
     },
   }),
   mounted() {

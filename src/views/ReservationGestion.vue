@@ -9,7 +9,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>List des reservations</v-toolbar-title>
+          <v-toolbar-title>Liste des reservations</v-toolbar-title>
           <v-spacer></v-spacer>
 
           <v-text-field
@@ -21,7 +21,6 @@
           ></v-text-field>
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="600px">
-            
             <v-card>
               <v-card-text>
                 <v-container>
@@ -75,7 +74,7 @@
                   </v-row>
                   <v-row>
                     <v-col cols="12">
-                        <v-select
+                      <v-select
                         :items="destinationcarranges"
                         item-text="Price"
                         item-value="id"
@@ -115,7 +114,15 @@
           </v-dialog>
         </v-toolbar>
       </template>
-      
+      <template v-slot:[`item.actions`]="{ item }">
+        <v-btn
+          color="#f45"
+          class="ml-2 m-2 btn white--text"
+          @click="deleteItem(item)"
+        >
+          <v-icon medium> mdi-delete </v-icon>
+        </v-btn>
+      </template>
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize()"> Reset </v-btn>
       </template>
@@ -141,7 +148,7 @@ export default {
       { text: "Depart", value: "Depart.Label", sortable: true },
       { text: "Destination", value: "Destination_.Label", sortable: true },
       { text: "Carrange", value: "Carrange.Label", sortable: true },
-
+      { text: "Actions", value: "actions", sortable: false },
     ],
     reservations: [],
     idgrp: null,
@@ -166,7 +173,7 @@ export default {
       IdDestinationCarRange: 0,
       id: 0,
     },
-    destinationcarranges:[],
+    destinationcarranges: [],
   }),
   mounted() {
     document.title = "user";
@@ -176,7 +183,7 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
-    ...mapGetters(["getReservation","getDestinationcarranges"]),
+    ...mapGetters(["getReservation", "getDestinationcarranges"]),
   },
   watch: {
     dialog(val) {
@@ -209,7 +216,7 @@ export default {
       "editRESERVATIONAction",
       "deleteRESERVATIONAction",
       "addRESERVATIONAction",
-      "setDESTINATIONCARRANGESAction"
+      "setDESTINATIONCARRANGESAction",
     ]),
 
     editItem(item) {
@@ -229,6 +236,9 @@ export default {
         });
       });
       this.editedIndex = -1;
+      this.setRESERVATIONSAction().then(() => {
+        this.reservations = [...this.getReservation];
+      });
       this.closeDelete();
     },
     close() {

@@ -9,7 +9,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>List des Car Range</v-toolbar-title>
+          <v-toolbar-title>Liste des Car Range</v-toolbar-title>
           <v-spacer></v-spacer>
 
           <v-text-field

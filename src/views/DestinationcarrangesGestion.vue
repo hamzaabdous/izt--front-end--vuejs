@@ -9,7 +9,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>List des destination carranges</v-toolbar-title>
+          <v-toolbar-title>Liste des destination carranges</v-toolbar-title>
           <v-spacer></v-spacer>
 
           <v-text-field
@@ -160,7 +160,7 @@ export default {
       { text: "Actions", value: "actions", sortable: false },
     ],
     destinationcarranges: [],
-    destination:[],
+    destination: [],
     carranges: [],
     idgrp: null,
     editedIndex: -1,
@@ -185,7 +185,11 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
-    ...mapGetters(["getDestinationcarranges",'getDestinations',"getCarranges"]),
+    ...mapGetters([
+      "getDestinationcarranges",
+      "getDestinations",
+      "getCarranges",
+    ]),
   },
   watch: {
     dialog(val) {
@@ -222,7 +226,7 @@ export default {
       "setCARRANGSAction",
       "addDESTINATIONCARRANGEAction",
       "deleteDESTINATIONCARRANGEAction",
-      "updateDESTINATIONCARRANGEAction"
+      "updateDESTINATIONCARRANGEAction",
     ]),
 
     editItem(item) {
@@ -256,12 +260,14 @@ export default {
           this.destinationcarranges.push(equipment);
         });
       } else {
-        this.updateDESTINATIONCARRANGEAction(this.editedItem).then((equipment) => {
-          this.destinationcarranges = this.destinationcarranges.map((c) => {
-            if (c.id == equipment.id) return equipment;
-            return c;
-          });
-        });
+        this.updateDESTINATIONCARRANGEAction(this.editedItem).then(
+          (equipment) => {
+            this.destinationcarranges = this.destinationcarranges.map((c) => {
+              if (c.id == equipment.id) return equipment;
+              return c;
+            });
+          }
+        );
       }
 
       this.close();
